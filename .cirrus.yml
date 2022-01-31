@@ -58,3 +58,4 @@ linux_mac_task:
     - python -m tox -e build
     test_script:
     - python -m tox -- -rfEx --durations 10 --color yes
+    - lsof -i :1883
