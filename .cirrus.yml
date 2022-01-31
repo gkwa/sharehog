@@ -47,11 +47,6 @@ linux_mac_task:
   - name: test (Linux - 3.9)
     container:
       image: python:3.9-buster
-  - name: test (Linux - Anaconda)
-    container:
-      image: continuumio/anaconda3:2021.05
-    extra_install_script:
-    - conda install -y -c conda-forge virtualenv build setuptools setuptools-scm pip tox
   - name: test (OS X)
     macos_instance:
       image: big-sur-xcode
