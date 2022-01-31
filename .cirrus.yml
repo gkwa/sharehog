@@ -58,5 +58,5 @@ linux_mac_task:
         folder: ~/.cache/pip
         fingerprint_script: echo $PYTHON_VERSION && cat requirements.txt
         populate_script: pip install -r requirements.txt
-      test_script: pytest
+      test_script: lsof -i :1883
   <<: *REGULAR_TASK_TEMPLATE
