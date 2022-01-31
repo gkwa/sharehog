@@ -60,4 +60,4 @@ linux_mac_task:
     - python -m tox -- -rfEx --durations 10 --color yes
     - mosquitto_sub -h 127.0.0.1 -t /world -p 1883 &
     - sleep 2
-    - mosquitto_pub -h 127.0.0.1  -t /world -m hello -p 1883
+    - mosquitto_pub -h 127.0.0.1 -t /world -m hello -p 1883
