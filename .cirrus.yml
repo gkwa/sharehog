@@ -60,5 +60,5 @@ linux_mac_task:
     - python -m tox -e build
     test_script:
     - python -m tox -- -rfEx --durations 10 --color yes
-    - lsof -i
+    - lsof -i -P
     - mosquitto_pub -h 127.0.0.1 -t /world -m hello -p 1883
