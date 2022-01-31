@@ -47,15 +47,13 @@ linux_mac_task:
   - name: test (Linux - 3.9)
     container:
       image: python:3.9-buster
-  - name: test (OS X)
-    macos_instance:
-      image: big-sur-xcode
-    env:
-      PYTHON_VERSION: 3.7
-      PATH: ${HOME}/.local/bin:${HOME}/Library/Python/${PYTHON_VERSION}/bin:/usr/local/opt/python/libexec/bin:${PATH}
-      PIP_CACHE: ${HOME}/Library/Caches/pip
-    brew_cache:
-      folder: $HOME/Library/Caches/Homebrew
-    install_script:
-    - brew install python
-    - brew cleanup
+    additional_containers:
+    - name: mosquitto
+      image: docker.io/library/eclipse-mosquitto:latest
+      port: 1883
+    test_task:
+      pip_cache:
+        folder: ~/.cache/pip
+        fingerprint_script: echo $PYTHON_VERSION && cat requirements.txt
+        populate_script: pip install -r requirements.txt
+      test_script: pytest
