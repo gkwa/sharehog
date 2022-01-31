@@ -10,7 +10,7 @@ env:
   CI_PULL_REQUEST: ${CIRRUS_PR}
   CI_BUILD_NUMBER: ${CIRRUS_BUILD_ID}
   CI_BUILD_URL: https://cirrus-ci.com/build/${CIRRUS_BUILD_ID}
-.regular_task_template:
+.regular_task_template: &REGULAR_TASK_TEMPLATE
   pip_cache:
     folder: $PIP_CACHE
   tox_install_script:
