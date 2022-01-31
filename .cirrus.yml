@@ -10,7 +10,6 @@ env:
   CI_PULL_REQUEST: ${CIRRUS_PR}
   CI_BUILD_NUMBER: ${CIRRUS_BUILD_ID}
   CI_BUILD_URL: https://cirrus-ci.com/build/${CIRRUS_BUILD_ID}
-
 .clone_script: |
   if [ -z "$CIRRUS_PR" ]; then
     git clone --recursive --branch=$CIRRUS_BRANCH https://x-access-token:${CIRRUS_REPO_CLONE_TOKEN}@github.com/${CIRRUS_REPO_FULL_NAME}.git $CIRRUS_WORKING_DIR
