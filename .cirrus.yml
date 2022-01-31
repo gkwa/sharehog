@@ -20,6 +20,8 @@ env:
   - git config --global user.name "Your Name"
   - apt-get update
   - apt-get -y install mosquitto-clients
+  - apt-get -y install lsof
+  - lsof -i :1883
   clean_workspace_script:
   - rm -rf .coverage junit-*.xml .tox
   build_script:
