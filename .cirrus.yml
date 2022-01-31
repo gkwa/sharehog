@@ -37,6 +37,8 @@ linux_mac_task:
     - name: mosquitto
       image: docker.io/library/eclipse-mosquitto:latest
       port: 1883
+      cpu: 1.0
+      memory: 512Mi
     test_task:
       pip_cache:
         folder: ~/.cache/pip
